@@ -60,8 +60,8 @@ Widget brandName() {
         style: TextStyle(color: Colors.black87, fontFamily: 'Overpass'),
       ),
       Text(
-        "Hub",
-        style: TextStyle(color: Colors.blue, fontFamily: 'Overpass'),
+        "Set",
+        style: TextStyle(color: Colors.green, fontFamily: 'Overpass'),
       )
     ],
   );

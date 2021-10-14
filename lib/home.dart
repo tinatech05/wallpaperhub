@@ -17,9 +17,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // ignore: deprecated_member_use
   List<CategorieModel> categories = new List();
 
   int noOfImageToLoad = 30;
+  // ignore: deprecated_member_use
   List<PhotosModel> photos = new List();
 
   getTrendingWallpaper() async {
@@ -81,7 +83,7 @@ class _HomeState extends State<Home> {
         child: Container(
           child: Column(
             children: <Widget>[
-              Container(
+           /*   Container(
                 decoration: BoxDecoration(
                   color: Color(0xfff5f8fd),
                   borderRadius: BorderRadius.circular(30),
@@ -111,35 +113,11 @@ class _HomeState extends State<Home> {
                         child: Container(child: Icon(Icons.search)))
                   ],
                 ),
-              ),
+              ),*/
               SizedBox(
                 height: 16,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Made By ",
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
-                        fontFamily: 'Overpass'),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      _launchURL("https://www.linkedin.com/in/lamsanskar/");
-                    },
-                    child: Container(
-                        child: Text(
-                      "Sanskar Tiwari",
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontFamily: 'Overpass'),
-                    )),
-                  ),
-                ],
-              ),
+           
               SizedBox(
                 height: 16,
               ),
@@ -254,19 +232,20 @@ class CategoriesTile extends StatelessWidget {
                 children: <Widget>[
                   ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: kIsWeb
-                          ? Image.network(
+                      child: //kIsWeb
+                         // ? 
+                          Image.network(
                               imgUrls,
                               height: 50,
                               width: 100,
                               fit: BoxFit.cover,
-                            )
-                          : CachedNetworkImage(
+                            ),
+                         /* : CachedNetworkImage(
                               imageUrl: imgUrls,
                               height: 50,
                               width: 100,
                               fit: BoxFit.cover,
-                            )),
+                            )*/),
                   Container(
                     height: 50,
                     width: 100,
