@@ -31,19 +31,20 @@ Widget wallPaper(List<PhotosModel> listPhotos, BuildContext context) {
               child: Container(
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: kIsWeb
-                        ? Image.network(
+                    child:// kIsWeb
+                       // ?
+                         Image.network(
                             photoModel.src.portrait,
-                            height: 50,
+                            height: 40,
                             width: 100,
                             fit: BoxFit.cover,
                           )
-                        : CachedNetworkImage(
+                        /*: CachedNetworkImage(
                             imageUrl: photoModel.src.portrait,
                             placeholder: (context, url) => Container(
                                   color: Color(0xfff5f8fd),
                                 ),
-                            fit: BoxFit.cover)),
+                            fit: BoxFit.cover)*/),
               ),
             ),
           ));
@@ -61,7 +62,7 @@ Widget brandName() {
       ),
       Text(
         "Set",
-        style: TextStyle(color: Colors.green, fontFamily: 'Overpass'),
+        style: TextStyle(color: Colors.white, fontFamily: 'Overpass'),
       )
     ],
   );

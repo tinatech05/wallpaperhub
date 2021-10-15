@@ -8,7 +8,6 @@ import 'dart:convert';
 import 'package:wallpaper/models/categorie_model.dart';
 import 'package:wallpaper/models/photos_model.dart';
 import 'package:wallpaper/view/categorie_screen.dart';
-import 'package:wallpaper/view/search_view.dart';
 import 'package:wallpaper/widget/widget.dart';
 
 class Home extends StatefulWidget {
@@ -25,18 +24,20 @@ class _HomeState extends State<Home> {
   List<PhotosModel> photos = new List();
 
   getTrendingWallpaper() async {
+    print('ttttttttttttttttt');
+
     await http.get(
-        "https://api.pexels.com/v1/curated?per_page=$noOfImageToLoad&page=1",
+        Uri.parse("https://api.pexels.com/v1/curated?page=2&per_page=40"),
         headers: {"Authorization": apiKEY}).then((value) {
-      //print(value.body);
+      print(value.body);
 
       Map<String, dynamic> jsonData = jsonDecode(value.body);
       jsonData["photos"].forEach((element) {
-        //print(element);
+        print(element);
         PhotosModel photosModel = new PhotosModel();
         photosModel = PhotosModel.fromMap(element);
         photos.add(photosModel);
-        //print(photosModel.toString()+ "  "+ photosModel.src.portrait);
+        print(photosModel.toString() + "  " + photosModel.src.portrait);
       });
 
       setState(() {});
@@ -83,7 +84,7 @@ class _HomeState extends State<Home> {
         child: Container(
           child: Column(
             children: <Widget>[
-           /*   Container(
+              /*   Container(
                 decoration: BoxDecoration(
                   color: Color(0xfff5f8fd),
                   borderRadius: BorderRadius.circular(30),
@@ -114,15 +115,14 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),*/
-              SizedBox(
+             SizedBox(
                 height: 16,
               ),
-           
               SizedBox(
                 height: 16,
               ),
               Container(
-                height: 80,
+                height: 100,
                 child: ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     itemCount: categories.length,
@@ -136,21 +136,18 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
-              wallPaper(photos, context),
-              SizedBox(
-                height: 24,
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Photos provided By ",
+                    "Trainding : ",
                     style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                         fontFamily: 'Overpass'),
                   ),
-                  GestureDetector(
+                 /* GestureDetector(
                     onTap: () {
                       _launchURL("https://www.pexels.com/");
                     },
@@ -162,9 +159,17 @@ class _HomeState extends State<Home> {
                           fontSize: 12,
                           fontFamily: 'Overpass'),
                     )),
-                  )
+                  )*/
                 ],
               ),
+              SizedBox(
+                height: 16,
+              ),
+              wallPaper(photos, context),
+              SizedBox(
+                height: 24,
+              ),
+              
               SizedBox(
                 height: 24,
               ),
@@ -202,14 +207,14 @@ class CategoriesTile extends StatelessWidget {
                       child: kIsWeb
                           ? Image.network(
                               imgUrls,
-                              height: 50,
-                              width: 100,
+                              height: 60,
+                              width: 80,
                               fit: BoxFit.cover,
                             )
                           : CachedNetworkImage(
                               imageUrl: imgUrls,
-                              height: 50,
-                              width: 100,
+                              height: 60,
+                              width: 80,
                               fit: BoxFit.cover,
                             )),
                   SizedBox(
@@ -231,32 +236,33 @@ class CategoriesTile extends StatelessWidget {
             : Stack(
                 children: <Widget>[
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: //kIsWeb
-                         // ? 
-                          Image.network(
-                              imgUrls,
-                              height: 50,
-                              width: 100,
-                              fit: BoxFit.cover,
-                            ),
-                         /* : CachedNetworkImage(
+                    borderRadius: BorderRadius.circular(8),
+                    child: kIsWeb
+                        ?
+                        Image.network(
+                      imgUrls,
+                      height: 60,
+                      width: 110,
+                      fit: BoxFit.cover,
+                    )
+                     : CachedNetworkImage(
                               imageUrl: imgUrls,
-                              height: 50,
-                              width: 100,
+                              height: 60,
+                              width: 110,
                               fit: BoxFit.cover,
-                            )*/),
+                            )
+                  ),
                   Container(
-                    height: 50,
-                    width: 100,
+                    height: 60,
+                    width: 110,
                     decoration: BoxDecoration(
                       color: Colors.black26,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   Container(
-                      height: 50,
-                      width: 100,
+                      height: 60,
+                      width: 110,
                       alignment: Alignment.center,
                       child: Text(
                         categorie ?? "Yo Yo",

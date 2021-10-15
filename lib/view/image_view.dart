@@ -72,15 +72,15 @@ class _ImageViewState extends State<ImageView> {
                     },
                     child: Stack(
                       children: <Widget>[
-                        Container(
+                      /*  Container(
                           width: MediaQuery.of(context).size.width / 2,
                           height: 50,
                           decoration: BoxDecoration(
                             color: Color(0xff1C1B1B).withOpacity(0.8),
                             borderRadius: BorderRadius.circular(40),
                           ),
-                        ),
-                        Container(
+                        ),*/
+                      /*  Container(
                             width: MediaQuery.of(context).size.width / 2,
                             height: 50,
                             alignment: Alignment.center,
@@ -116,13 +116,14 @@ class _ImageViewState extends State<ImageView> {
                                       fontSize: 8, color: Colors.white70),
                                 ),
                               ],
-                            )),
+                            )
+                            ),*/
                       ],
                     )),
                 SizedBox(
                   height: 16,
                 ),
-                InkWell(
+                /*InkWell(
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -133,7 +134,7 @@ class _ImageViewState extends State<ImageView> {
                         fontSize: 12,
                         fontWeight: FontWeight.w500),
                   ),
-                ),
+                ),*/
                 SizedBox(
                   height: 50,
                 )

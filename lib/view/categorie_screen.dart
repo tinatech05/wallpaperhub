@@ -19,9 +19,10 @@ class _CategorieScreenState extends State<CategorieScreen> {
 
   getCategorieWallpaper() async {
     await http.get(
-        "https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=30&page=1",
+       Uri.parse( "https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=30&page=1"),
         headers: {"Authorization": apiKEY}).then((value) {
-      //print(value.body);
+      //
+      print(value.body);
 
       Map<String, dynamic> jsonData = jsonDecode(value.body);
       jsonData["photos"].forEach((element) {
@@ -48,14 +49,7 @@ class _CategorieScreenState extends State<CategorieScreen> {
       appBar: AppBar(
         title: brandName(),
         elevation: 0.0,
-        actions: <Widget>[
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              ))
-        ],
+     
       ),
       body: SingleChildScrollView(
         child: wallPaper(photos, context)
