@@ -140,7 +140,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Trainding : ",
+                    "Trending : ",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
