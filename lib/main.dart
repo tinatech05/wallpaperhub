@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: BannerAd.testAdUnitId,
+        adUnitId: 'ca-app-pub-1627751663958933/1544379989',
       //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
         targetingInfo: targetingInfo,
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    FirebaseAdMob.instance.initialize(appId: BannerAd.testAdUnitId);
+    FirebaseAdMob.instance.initialize(appId: "ca-app-pub-1627751663958933~6601265541");
     //Change appId With Admob Id
     _bannerAd = createBannerAd()
       ..load()
